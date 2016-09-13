@@ -3,49 +3,20 @@ var app = angular.module('storeApp', ['ngRoute']);
 
 
 
-app.controller('storeController', function($scope) {
+app.controller('storeController', ['$scope', '$parse', function($scope, $parse) {
 
-    $scope.name = "Taylor";
-    $scope.clock = {
-        now: new Date()
+    $scope.person = {
+        name: 'ari lerner'
     };
 
-    var updateClock = function () {
-        $scope.clock.now = new Date()
-    };
-    setInterval(function () {
-        $scope.$apply(updateClock); // every sec run function setting new date
-    }, 1000);
-    updateClock();
+    $scope.$watch('expr', function(newVal, oldVal, scope) {
+        if (newVal !== oldVal) {    
+            var parseFun = $parse(newVal);
+            scope.parsedValue = parseFun(scope);
+        }
+    });
 
-    $scope.counter = 0;
-    $scope.add = function(amount) { // amount = 1 in index file
-        $scope.counter += amount;
-    };
-    $scope.subtract = function(amount) {
-        $scope.counter -= amount;
-    }
-
-});
-
-
-
-app.controller('parentController', function($scope) {
-
-   $scope.person = {
-       greeted: false
-   };
-
-});
-
-app.controller('childController', function($scope) {
-
-    $scope.sayHello = function() {
-        $scope.person.name = 'Ari Lerner';
-        $scope.person.greeted = true;
-    }
-
-});
+}]);
 
 
 
