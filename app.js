@@ -3,20 +3,17 @@ var app = angular.module('storeApp', ['ngRoute']);
 
 
 
-app.controller('storeController', ['$scope', '$parse', function($scope, $parse) {
+app.controller('storeController', function($scope) {
 
-    $scope.person = {
-        name: 'ari lerner'
+    $scope.currency = {
+        amount: 1000
     };
 
-    $scope.$watch('expr', function(newVal, oldVal, scope) {
-        if (newVal !== oldVal) {    
-            var parseFun = $parse(newVal);
-            scope.parsedValue = parseFun(scope);
-        }
-    });
+    $scope.purchase = function(weaponAmount) {
+        $scope.currency.amount -= weaponAmount;
+    };
 
-}]);
+});
 
 
 
