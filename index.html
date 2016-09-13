@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="storeApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Store</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="//code.angularjs.org/1.5.7/angular-route.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css"/>
+</head>
+<body ng-controller="storeController">
+
+<input type="text" ng-model="name"/>
+<h1>hello {{ name }}</h1>
+<h2>{{ clock.now }}</h2>
+
+<button ng-click="add(1)">Add</button>
+<button ng-click="subtract(1)">Subtract</button>
+<h2>Current Count: {{ counter }}</h2>
+
+
+<div ng-controller="parentController">
+    <div ng-controller="childController">
+        <a ng-click="sayHello()">Say Hello</a>
+    </div>
+    {{ person }}
+</div>
+
+
+</body>
+</html>
