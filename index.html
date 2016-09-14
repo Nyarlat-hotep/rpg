@@ -13,45 +13,16 @@
 <!--<h2>Current gold: {{ currency.amount }}</h2>-->
 <!--<button ng-click="purchase(500)">Purchase for $500</button>-->
 
+<div ng-controller="parentController">
+    {{ someModel.someValue }}
+    <button ng-click="someAction()">Communicate to child</button>
 
-<!--ng-disabled-->
-<input type="text" ng-model="propertyOne"/>
-<button ng-disabled="!propertyOne">A button</button><br><br>
+    <div ng-controller="childController">
+        {{ someModel.someValue }}
+        <button ng-click="childAction()">Communicate to parent</button>
+    </div>
+</div>
 
-
-<!--ng-readonly-->
-<input type="text" ng-model="propertyTwo">
-<input type="text" ng-readonly="propertyTwo" value="some text here"><br><br>
-
-
-<!--ng-checked-->
-<label>proptertyThree = {{ propertyThree }}</label>
-<input type="checkbox" ng-checked="propertyThree" ng-init="propertyThree = true" ng-model="propertyThree"><br><br>
-
-
-<!--ng-selected-->
-<label>Select Two Fish:</label>
-<input type="checkbox" ng-model="isTwoFish"><br>
-<select>
-    <option>One Fish</option>
-    <option ng-selected="isTwoFish">Two Fish</option>
-</select><br><br>
-
-
-<!--ng-href-->
-<a ng-href="{{ myHref }}">I'm feeling lucky</a> <!--will run once expression function has finished running-->
-<a href="{{ myHref }}">I'm feeling 404</a><br><br>  <!--Does not wait for interpolation-->
-
-
-<!--ng-src-->
-<h1>Wrong Way</h1>
-<img src="{{ imgSrc }}"/>
-
-<h1>Right Way</h1>
-<img ng-src="{{ imgSrc }}"/><br><br>
-
-
-<!---->
 
 </body>
 </html>

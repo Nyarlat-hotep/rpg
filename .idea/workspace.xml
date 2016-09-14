@@ -29,8 +29,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="550">
-              <caret line="53" column="4" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="4" />
+            <state relative-caret-position="255">
+              <caret line="17" column="36" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -39,10 +39,10 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+            <state relative-caret-position="255">
+              <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
               <folding>
-                <marker date="1473874708000" expanded="true" signature="866:1029" ph="..." />
+                <marker date="1473879998000" expanded="true" signature="909:1072" ph="..." />
               </folding>
             </state>
           </provider>
@@ -64,8 +64,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/app.js" />
       </list>
     </option>
   </component>
@@ -168,12 +168,12 @@
       <workItem from="1473687079527" duration="837000" />
       <workItem from="1473688225649" duration="13548000" />
       <workItem from="1473795446347" duration="1197000" />
-      <workItem from="1473861675169" duration="6605000" />
+      <workItem from="1473861675169" duration="8048000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22187000" />
+    <option name="totallyTimeSpent" value="23630000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2" y="23" width="1440" height="829" extended-state="6" />
@@ -226,7 +226,7 @@
         <state relative-caret-position="255">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding>
-            <marker date="1473874708000" expanded="true" signature="866:1029" ph="..." />
+            <marker date="1473879998000" expanded="true" signature="909:1072" ph="..." />
           </folding>
         </state>
       </provider>
@@ -244,7 +244,7 @@
         <state relative-caret-position="255">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding>
-            <marker date="1473874708000" expanded="true" signature="866:1029" ph="..." />
+            <marker date="1473879998000" expanded="true" signature="909:1072" ph="..." />
           </folding>
         </state>
       </provider>
@@ -262,7 +262,7 @@
         <state relative-caret-position="30">
           <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding>
-            <marker date="1473874708000" expanded="true" signature="866:1029" ph="..." />
+            <marker date="1473879998000" expanded="true" signature="909:1072" ph="..." />
           </folding>
         </state>
       </provider>
@@ -276,18 +276,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+        <state relative-caret-position="255">
+          <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
           <folding>
-            <marker date="1473874708000" expanded="true" signature="866:1029" ph="..." />
+            <marker date="1473879998000" expanded="true" signature="909:1072" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="53" column="4" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="4" />
+        <state relative-caret-position="255">
+          <caret line="17" column="36" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
           <folding />
         </state>
       </provider>

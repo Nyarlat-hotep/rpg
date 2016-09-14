@@ -1,27 +1,5 @@
 // Module
-var app = angular.module('storeApp', [])
-
-
-// ng-href
-// .run(function($rootScope, $timeout) {
-//
-//     $timeout(function() {
-//         $rootScope.myHref = 'http://google.com';
-//     }, 2000);
-// });
-
-
-// ng-src
-    .run(function ($rootScope, $timeout) {
-        $timeout(function() {
-            $rootScope.imgSrc = 'https://www.google.com/images/srpr/logo11w.png';
-        }, 2000);
-    });
-
-
-
-
-
+var app = angular.module('storeApp', []);
 
 
 app.controller('storeController', function($scope) {
@@ -34,6 +12,26 @@ app.controller('storeController', function($scope) {
     //     $scope.currency.amount -= weaponAmount;
     // };
 
+});
+
+
+app.controller('parentController', function($scope) {
+
+   $scope.someModel = {
+       someValue: 'hello computer'
+   };
+
+   $scope.someAction = function() {
+       $scope.someModel.someValue = 'hello human, from parent';
+   };
+
+});
+
+app.controller('childController', function($scope) {
+
+    $scope.childAction = function() {
+        $scope.someModel.someValue = 'hello human, from child';
+    };
 });
 
 
