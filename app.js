@@ -19,8 +19,20 @@ app.controller('storeController', function($scope) {
 
 
 
-app.service('productService', function() {
-
-
-
+app.directive('myDirective', function () {
+   return {
+       restrict: 'A',
+       replace: true,
+       scope: {
+           myUrl: '=',
+           myLinkText: '@'
+       },
+       template: '\
+          <div>\
+            <label>My URL Field:</label>\
+            <input type="text" ng-model="myUrl" />\
+            <a href="{{myUrl}}">{{myUrl}}</a>\
+          </div>\
+        '
+   }
 });

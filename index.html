@@ -6,12 +6,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
     <script src="//code.angularjs.org/1.5.7/angular-route.js"></script>
     <script src="app.js"></script>
-    <link rel="stylesheet" href="foundation-6.2.3-complete/css/foundation.css"/>
+    <!--<link rel="stylesheet" href="foundation-6.2.3-complete/css/foundation.css"/>-->
 </head>
 <body ng-controller="storeController">
 
-<h2>Current gold: {{ currency.amount }}</h2>
-<button ng-click="purchase(500)">Purchase for $500</button>
+<!--<h2>Current gold: {{ currency.amount }}</h2>-->
+<!--<button ng-click="purchase(500)">Purchase for $500</button>-->
+
+<label>Their URL field:</label>
+<input type="text" ng-model="theirUrl">
+<div my-directive my-url="theirUrl" my-link-text="Click here"></div>
 
 </body>
 </html>
