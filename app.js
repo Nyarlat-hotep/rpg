@@ -24,14 +24,14 @@ app.directive('myDirective', function () {
        restrict: 'A',
        replace: true,
        scope: {
-           myUrl: '=',
+           myText: '=',
            myLinkText: '@'
        },
        template: '\
           <div>\
-            <label>My URL Field:</label>\
-            <input type="text" ng-model="myUrl" />\
-            <a href="{{myUrl}}">{{myUrl}}</a>\
+            <label>My Text Field:</label>\
+            <input type="text" ng-model="myText" />\
+            <a href="{{myText}}">{{myText}}</a>\
           </div>\
         '
    }
