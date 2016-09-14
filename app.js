@@ -17,7 +17,7 @@ app.controller('storeController', function($scope) {
 
 app.controller('parentController', function($scope) {
 
-   $scope.someModel = {
+   $scope.someModel = { // setting value in object allows reference to be passed from parent to child and child to parent
        someValue: 'hello computer'
    };
 
