@@ -12,27 +12,15 @@ app.controller('storeController', function($scope) {
     //     $scope.currency.amount -= weaponAmount;
     // };
 
+
+    $scope.people = [
+        {name: "ari", city: "sanfran"},
+        {name: "erik", city: "seattle"}
+    ];
 });
 
 
-app.controller('parentController', function($scope) {
 
-   $scope.someModel = { // setting value in object allows reference to be passed from parent to child and child to parent
-       someValue: 'hello computer'
-   };
-
-   $scope.someAction = function() {
-       $scope.someModel.someValue = 'hello human, from parent';
-   };
-
-});
-
-app.controller('childController', function($scope) {
-
-    $scope.childAction = function() {
-        $scope.someModel.someValue = 'hello human, from child';
-    };
-});
 
 
 
