@@ -2,7 +2,7 @@
 var app = angular.module('storeApp', []);
 
 
-app.controller('storeController', function($scope) {
+app.controller('storeController', ["$scope", "classesService", function($scope, classesService) {
 
     // $scope.currency = {
     //     amount: 1000
@@ -12,34 +12,23 @@ app.controller('storeController', function($scope) {
     //     $scope.currency.amount -= weaponAmount;
     // };
 
+    $scope.name = classesService.classes[0].name;
+    $scope.skillPoints = classesService.totalSkillPoints;
 
-    $scope.people = [
-        {name: "ari", city: "sanfran"},
-        {name: "erik", city: "seattle"}
-    ];
-});
+}]);
 
+app.service('classesService', function() {
 
+    var self = this;
 
+    this.totalSkillPoints = 10;
 
+    this.classes = [
 
+         {
+          name: 'Barbarian',
+          skill: 'hand-to-hand combat'
+        }
 
-
-
-app.directive('myDirective', function () {
-   return {
-       restrict: 'A',
-       replace: true,
-       scope: {
-           myText: '=',
-           myLinkText: '@'
-       },
-       template: '\
-          <div>\
-            <label>My Text Field:</label>\
-            <input type="text" ng-model="myText" />\
-            <a href="{{myText}}">{{myText}}</a>\
-          </div>\
-        '
-   }
+    ]
 });
