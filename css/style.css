@@ -8,89 +8,69 @@
 .card .title {
   line-height: 3rem;
   font-size: 1.5rem;
-  font-weight: 300;
-}
+  font-weight: 300; }
 
 .card .content {
   padding: 1.3rem;
   font-weight: 300;
-  border-radius: 0 0 2px 2px;
-}
+  border-radius: 0 0 2px 2px; }
 
 .card p {
-  margin: 0;
-}
+  margin: 0; }
 
 .card .action {
   border-top: 1px solid rgba(160, 160, 160, 0.2);
   text-align: center;
-  padding-top: 1.3rem;
-}
+  padding-top: 1.3rem; }
 
 .card a {
   transition: color 0.3s ease;
   text-transform: uppercase;
-  text-decoration: none;
-}
+  text-decoration: none; }
 
 .card .image {
   position: relative;
   background-color: silver;
-  padding: 1rem 0;
-
-  img {
+  padding: 1rem 0; }
+  .card .image img {
     margin: 0 auto;
     display: block;
     padding-bottom: 2rem;
-    height: 15rem;
-  }
-}
+    height: 15rem; }
 
 .card .image .title {
   position: absolute;
   bottom: -1.5rem;
   left: 0;
   padding: 1.3rem;
-  color: #000;
-}
+  color: #000; }
 
 h1 {
   text-align: center;
-  margin-top: 3rem;
-}
-
+  margin-top: 3rem; }
 
 #progressBarTitle {
-  text-align: center;
-}
+  text-align: center; }
 
 .classSelectButton {
   color: #3c3c3c;
   background-color: #ffd700;
-  border-radius: 10px;
-
-  &:hover {
+  border-radius: 10px; }
+  .classSelectButton:hover {
     background-color: #ccac00;
-    color: #3c3c3c;
-  }
-}
+    color: #3c3c3c; }
 
 .classSelectButton[disabled] {
-  transition: .5s;
-}
+  transition: .5s; }
 
 .progress {
-  padding: 0;
-}
+  padding: 0; }
 
 .progress-meter {
   position: relative;
   display: block;
   height: 100%;
-  background-color: rgb(33, 153, 232);
-}
+  background-color: #2199e8; }
 
 .progress-meter-oneFourth {
-  width: 25%;
-}
-
+  width: 25%; }

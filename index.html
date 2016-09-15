@@ -7,6 +7,8 @@
     <script src="//code.angularjs.org/1.5.7/angular-route.js"></script>
     <script src="app.js"></script>
     <link rel="stylesheet" href="foundation-6.2.3-complete/css/foundation.css"/>
+    <link rel="stylesheet" href="css/style.scss"/>
+    <link rel="stylesheet" href="css/style.css"/>
 </head>
 
 
@@ -16,27 +18,30 @@
 <!--<h2>Current gold: {{ currency.amount }}</h2>-->
 <!--<button ng-click="purchase(500)">Purchase for $500</button>-->
 
-<h3 id="progressBarTitle">Current Progress creating character</h3>
+<h4 id="progressBarTitle">Current progress</h4>
 <div class="row">
-    <div class="progress large-4 large-centered columns" role="progressbar" tabindex="0" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress large-4 large-centered columns" ng-class="classOneFourthProgress" role="progressbar" tabindex="0" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
         <div class="progress-meter"></div>
     </div>
 </div>
 
-<h1>Your total skill points: {{ skillPoints }}</h1>
+<h1>Your total skill points: {{ totalSkillPoints }}</h1>
 
+<!--ng-repeat character class cards-->
 <div class="row">
-    <div class="medium-4 columns">
-        <div class="card">
+    <div class="large-3 columns" ng-repeat="class in classes">
+        <div class="card classCard">
             <div class="image">
-                <img src="">
-                <span class="title">{{ name }}</span>
+                <img ng-src="{{ class.image }}">
+                <h2 class="title">{{ class.name }}</h2>
             </div>
             <div class="content">
-                <p>I shall be telling this with a sigh	. Somewhere ages and ages hence:	 Two roads diverged in a wood, and I —	 I took the one less traveled by.	 And that has made all the difference.</p>
+                <p><strong>Strength: </strong>{{ class.skill }}</p>
+                <p><strong>Weakness: </strong>{{ class.weakness }}</p><br>
+                <h4 class="classCost">Cost: {{ class.cost }}</h4>
             </div>
             <div class="action">
-                <a href='#'>Where this leads</a>
+                <a class="button classSelectButton" ng-disabled="isDisabled" ng-click="calcCostController(class.cost)">Select this class</a>
             </div>
         </div>
     </div>
