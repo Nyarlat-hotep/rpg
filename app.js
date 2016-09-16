@@ -2,7 +2,7 @@
 var app = angular.module('storeApp', []);
 
 
-app.controller('storeController', ["$scope", "classesService", function($scope, classesService) {
+app.controller('storeController', ["$scope", "classesService", "abilitiesService", function($scope, classesService, abilitiesService) {
 
     // $scope.currency = {
     //     amount: 1000
@@ -15,21 +15,24 @@ app.controller('storeController', ["$scope", "classesService", function($scope, 
     $scope.totalSkillPoints = 10;
     $scope.classes = classesService.classes;
     $scope.isDisabled = false;
-    $scope.classOneFourthProggress = false;
+    $scope.classOneFourthProgress = false;
 
     $scope.calcCostController = function(classCost) {
         $scope.totalSkillPoints = classesService.calcCostService($scope.totalSkillPoints, classCost);
         $scope.isDisabled = true;
-        $scope.classOneFourthProggress = true;
+        $scope.classOneFourthProgress = true;
     };
+
+    $scope.barb = abilitiesService.returnBarb();
+
 
 }]);
 
 app.service('classesService', function() {
 
-    var self = this;
+    var classesService = this;
 
-    self.classes = [
+    classesService.classes = [
 
          {
              name: 'Barbarian',
@@ -61,8 +64,47 @@ app.service('classesService', function() {
         }
     ];
 
-    self.calcCostService = function(total, classCost) {
+    classesService.calcCostService = function(total, classCost) {
         return total -= classCost;
     }
+
+});
+
+
+app.service('abilitiesService', function() {
+
+    var abilitiesService = this;
+
+    var allAbilities = [];  //push at end
+    var Character = {'name':'', 'abilities':[]};
+
+
+    // New Object for Characters
+    var barbarian = new Object(Character);
+    barbarian.name = "";
+
+    var mage = new Object(Character);
+    mage.name = "";
+
+    var paladin = new Object(Character);
+    paladin.name = "";
+
+    var assassin = new Object(Character);
+    assassin.name = "";
+
+
+    // New Object for Abilites
+    barbarian.abilities.push(createAbility("Bash", "A powerful smashing blow that knocks the target back.", 1 ));
+    console.log(barbarian);
+
+    function createAbility (name, desc, cost) {
+        var Ability = {'name': name, 'description': desc, 'cost': cost};
+
+        return Ability;
+    }
+
+    abilitiesService.returnBarb = function getBarab() {
+        return barbarian;
+    };
 
 });

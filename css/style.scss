@@ -3,7 +3,12 @@
   overflow: hidden;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   color: #272727;
-  border-radius: 2px; }
+  border-radius: 2px;
+}
+
+.selectedCard {
+  background-color: crimson;
+}
 
 .card .title {
   line-height: 3rem;
@@ -92,5 +97,6 @@ h1 {
 
 .progress-meter-oneFourth {
   width: 25%;
+  transition: 1s;
 }
 
