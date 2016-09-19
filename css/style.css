@@ -19,7 +19,8 @@
   border-radius: 0 0 2px 2px; }
 
 .activeCard {
-  background-color: red; }
+  background-color: black;
+  color: white; }
 
 .card p {
   margin: 0; }
@@ -68,6 +69,9 @@ h1, h2 {
 
 .classSelectButton[disabled] {
   transition: .5s; }
+  .classSelectButton[disabled]:hover {
+    background-color: #ffd700;
+    color: black; }
 
 .progress {
   padding: 0; }
@@ -83,5 +87,5 @@ h1, h2 {
   transition: 1s; }
 
 #charName {
-  width: 40%;
-  margin: 0 auto; }
+  margin: 0 auto;
+  margin-bottom: 2rem; }

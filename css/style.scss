@@ -23,7 +23,8 @@
 }
 
 .activeCard {
-  background-color: red;
+  background-color: black;
+  color: white;
 }
 
 .card p {
@@ -86,6 +87,11 @@ h1, h2 {
 
 .classSelectButton[disabled] {
   transition: .5s;
+
+  &:hover {
+    background-color: #ffd700;
+    color: black;
+  }
 }
 
 .progress {
@@ -105,7 +111,7 @@ h1, h2 {
 }
 
 #charName {
-  width: 40%;
   margin: 0 auto;
+  margin-bottom: 2rem;
 }
 

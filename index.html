@@ -30,7 +30,7 @@
 <!--ng-repeat character class cards-->
 <div class="row">
     <div class="large-3 columns" ng-repeat="class in classes">
-        <div class="card classCard" ng-class="{'activeCard' : activeClass}">
+        <div class="card classCard" ng-class="{'activeCard' : $index == selectedCard}">
             <div class="image">
                 <img ng-src="{{ class.image }}">
                 <h2 class="title">{{ class.name }}</h2>
@@ -41,7 +41,7 @@
                 <h4 class="classCost">Cost: {{ class.cost }}</h4>
             </div>
             <div class="action">
-                <a class="button classSelectButton" ng-disabled="isDisabled" ng-click="calcCostController(class.cost)">Select this class</a>
+                <a class="button classSelectButton" ng-disabled="isDisabled" ng-click="calcCostController(class.cost); activeCard($index)">Select this class</a>
             </div>
         </div>
     </div>
@@ -49,9 +49,14 @@
 
 <!-- container for adding character name -->
 
-<div ng-show="isDisabled">
-    <h2>Your character name: {{ charName }}</h2>
-    <input id="charName" type="text" ng-model="charName" placeholder="Enter character name"/>
+<div class="row">
+    <div class="large-5 columns large-centered" ng-show="isDisabled">
+        <form ng-submit="nameSubmit()">
+            <h2>Your character name: <br>{{ inputText }}</h2>
+            <input id="charName" type="text" ng-model="inputText" placeholder="Enter character name"/>
+            <input type="submit" value='Submit'/>
+        </form>
+    </div>
 </div>
 
 <!-- ng-repeat character special abilities --->

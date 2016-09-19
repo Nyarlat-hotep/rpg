@@ -14,7 +14,6 @@ app.controller('storeController', ["$scope", "classesService", "abilitiesService
 
     $scope.totalSkillPoints = 10;
     $scope.classes = classesService.classes;
-    $scope.activeClass = classesService.classes.active;
     $scope.isDisabled = false;
     $scope.classOneFourthProgress = false;
 
@@ -22,10 +21,19 @@ app.controller('storeController', ["$scope", "classesService", "abilitiesService
         $scope.totalSkillPoints = classesService.calcCostService($scope.totalSkillPoints, classCost);
         $scope.isDisabled = true;
         $scope.classOneFourthProgress = true;
-        $scope.activeClass = true;
     };
 
-    $scope.charName = abilitiesService.charName;
+    $scope.activeCard = function(index) {
+        $scope.selectedCard = index;
+    };
+
+
+    $scope.inputCharName = [];
+    $scope.inputText = '';
+    $scope.nameSubmit = function() {
+            $scope.inputCharName.push(this.inputText);
+            $scope.inputText = '';   // set text back to nothing
+    }
 
 }]);
 
