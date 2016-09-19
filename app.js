@@ -76,12 +76,14 @@ app.service('abilitiesService', function() {
     var abilitiesService = this;
 
     var allAbilities = [];  //push at end
-    var Character = {'name':'', 'abilities':[]};
+    var Character = {'charName':'', 'abilities':[]};
 
 
     // New Object for Characters
     var barbarian = new Object(Character);
-    barbarian.name = "";
+    barbarian.charName = "Barbarian Name";
+
+    console.log(barbarian);
 
     var mage = new Object(Character);
     mage.name = "";
@@ -94,17 +96,21 @@ app.service('abilitiesService', function() {
 
 
     // New Object for Abilites
-    barbarian.abilities.push(createAbility("Bash", "A powerful smashing blow that knocks the target back.", 1 ));
-    console.log(barbarian);
-
+    // function to create abilities per character
     function createAbility (name, desc, cost) {
         var Ability = {'name': name, 'description': desc, 'cost': cost};
 
         return Ability;
     }
 
-    abilitiesService.returnBarb = function getBarab() {
+    // push first barbarian ability to array
+    barbarian.abilities.push(createAbility("Bash", "A powerful smashing blow that knocks the target back.", 1 ));
+    barbarian.abilities.push(createAbility("Stun", "A successful attack briefly stuns the enemy.", 2));
+    barbarian.abilities.push(createAbility("Whirlwind", "A fierce spinning attack.", 3));
+    barbarian.abilities.push(createAbility("Berserk", "A powerful attack that leaves the Barbarian more vulnerable.", 3));
+
+    // function to return barbarian character. Used in controller
+    abilitiesService.returnBarb = function getBarb() {
         return barbarian;
     };
-
 });
