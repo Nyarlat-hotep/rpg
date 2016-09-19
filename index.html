@@ -30,7 +30,7 @@
 <!--ng-repeat character class cards-->
 <div class="row">
     <div class="large-3 columns" ng-repeat="class in classes">
-        <div class="card classCard">
+        <div class="card classCard" ng-class="{'activeCard' : activeClass}">
             <div class="image">
                 <img ng-src="{{ class.image }}">
                 <h2 class="title">{{ class.name }}</h2>
@@ -47,9 +47,14 @@
     </div>
 </div>
 
-<!-- ng-repeat character special abilities --->
+<!-- container for adding character name -->
 
-<h1>{{ barb.charName }}</h1>
+<div ng-show="isDisabled">
+    <h2>Your character name: {{ charName }}</h2>
+    <input id="charName" type="text" ng-model="charName" placeholder="Enter character name"/>
+</div>
+
+<!-- ng-repeat character special abilities --->
 
 </body>
 

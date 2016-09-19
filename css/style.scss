@@ -22,6 +22,10 @@
   border-radius: 0 0 2px 2px;
 }
 
+.activeCard {
+  background-color: red;
+}
+
 .card p {
   margin: 0;
 }
@@ -59,7 +63,7 @@
   color: #000;
 }
 
-h1 {
+h1, h2 {
   text-align: center;
   margin-top: 3rem;
 }
@@ -98,5 +102,10 @@ h1 {
 .progress-meter-oneFourth {
   width: 25%;
   transition: 1s;
+}
+
+#charName {
+  width: 40%;
+  margin: 0 auto;
 }
 
