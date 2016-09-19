@@ -27,6 +27,9 @@ app.controller('storeController', ["$scope", "classesService", "abilitiesService
     // function for active class on card
     $scope.activeCard = function(index) {
         $scope.selectedCard = index;
+        $scope.selectedCharacter = abilitiesService.allAbilities[index].abilities;
+        $scope.pushedName = [];
+        $scope.pushedName.push(classesService.classes[index].name);
     };
 
     // properties for naming character
@@ -37,17 +40,15 @@ app.controller('storeController', ["$scope", "classesService", "abilitiesService
             $scope.inputText = '';   // set text back to nothing
     };
 
-
-    for (var key in classesService.classes) {
-        $scope.pushedName = [];
-        $scope.pushClassName = function() {
-            $scope.pushedName.push(classesService.classes[key].name);
-        }
-    }
-
+    // access to abilities service
     $scope.allAbilities = abilitiesService.allAbilities;
 
+    $scope.hide = false;
+    $scope.hiding = function() {
+        $scope.hide = true;
+    };
 
+    $scope.selectedCharacter;
 
 }]);
 
@@ -95,6 +96,8 @@ app.service('classesService', function() {
         return total -= classCost;
     };
 
+    console.log(classesService.classes);
+
 });
 
 
@@ -103,39 +106,36 @@ app.service('abilitiesService', function() {
     var abilitiesService = this;
 
     abilitiesService.allAbilities = [];  // push at end
-    var Character = {'abilities':[]};
-
-    abilitiesService.charName = '';
 
     // New Object for Characters
-    var barbarian = new Object(Character);
+    var barbarian = {'abilities':[]};
     // push barbarian abilities to abilities array in Character object
     barbarian.abilities.push(createAbility("Bash", "A powerful smashing blow that knocks the target back.", 1 ));
     barbarian.abilities.push(createAbility("Stun", "A successful attack briefly stuns the enemy.", 2));
     barbarian.abilities.push(createAbility("Whirlwind", "A fierce spinning attack.", 3));
     barbarian.abilities.push(createAbility("Berserk", "A powerful attack that leaves the Barbarian more vulnerable.", 3));
 
-    var mage = new Object(Character);
+    var mage = {'abilities':[]};
     mage.abilities.push(createAbility("Fire Bolt", "Casts a small projectile of fire through the air and in to one enemy.", 1));
     mage.abilities.push(createAbility("Nova", "When cast, creates an expanding ring of pure lightning damage to hurt surrounding enemies within a fixed range", 2));
     mage.abilities.push(createAbility("Blizzard", "Gives a defense bonus and freezes any melee attacker that hits you.", 3));
     mage.abilities.push(createAbility("Hydra", "Summons a Fire-elemental in the form of a three-headed, fire-spitting hydra.", 3));
-    mage.abilities.splice(0, 4);
+    // mage.abilities.splice(0, 4);
 
-    var paladin = new Object(Character);
+    var paladin = {'abilities':[]};
     paladin.abilities.push(createAbility("Paladin", "Might", "Increases damage dealt by party members.", 1));
     paladin.abilities.push(createAbility("Thorns", "Enemies take damage when they cause melee damage to party members.", 2));
     paladin.abilities.push(createAbility("Holy Shock", "Periodically does Lightning damage to enemies within a radius.", 3));
     paladin.abilities.push(createAbility("Conviction", "Reduces enemy Defense and the Resistances of monsters.", 3));
-    paladin.abilities.splice(0, 4);
+    // paladin.abilities.splice(0, 4);
     // console.log(paladin);
 
-    var assassin = new Object(Character);
+    var assassin = {'abilities':[]};
     assassin.abilities.push(createAbility("Dragon Talon", "An Assassin is taught to utilize her entire body as a weapon using this skill, she lets loose a powerful kick to send her opponents flying.", 1));
     assassin.abilities.push(createAbility("Cobra Strike", "A properly trained Assassin can focus her mind to draw upon the ambient energies surrounding her. Using this skill, she can drain her adversary of life and spiritual essence.", 2));
     assassin.abilities.push(createAbility("Mind Blast", "Focusing her anima, an Assassin using this potent ability can crush the will of a group of enemies, stunning them and confusing the feebleminded into attacking their comrades.", 3));
     assassin.abilities.push(createAbility("Death Sentry", "This trap emits projectiles laden with a potent chemical catalyst, detonating the exposed cadavers of slain enemies. Damage: 40-80% Of Corpse Life. Shoots 5 times.", 3));
-    assassin.abilities.splice(0, 4);
+    // assassin.abilities.splice(0, 4);
 
 
     // New Object for Abilites

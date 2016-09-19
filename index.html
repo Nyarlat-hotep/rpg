@@ -28,7 +28,7 @@
 <h1>Your total skill points: {{ totalSkillPoints }}</h1>
 
 <!--ng-repeat character class cards-->
-<div class="row">
+<div class="row" ng-hide="hide">
     <div class="large-3 columns" ng-repeat="class in classes">
         <div class="card classCard" ng-class="{'activeCard' : $index == selectedCard}">
             <div class="image">
@@ -41,7 +41,7 @@
                 <h4 class="classCost">Cost: {{ class.cost }}</h4>
             </div>
             <div class="action">
-                <a class="button classSelectButton" ng-hide="isDisabled" ng-click="calcCostController(class.cost); activeCard($index); pushClassName()">Select this class</a>
+                <a class="button classSelectButton" ng-hide="isDisabled" ng-click="calcCostController(class.cost); activeCard($index)">Select this class</a>
             </div>
         </div>
     </div>
@@ -49,12 +49,12 @@
 
 <!-- container for adding character name -->
 
-<div class="row nameBlock">
+<div class="row nameBlock" ng-hide="hide">
     <div class="large-5 columns large-centered" ng-show="isDisabled">
         <form ng-submit="nameSubmit()">
             <h4>Your character name: <br><strong>{{ inputText }}</strong></h4>
-            <input id="charName" type="text" ng-model="inputText" placeholder="Enter character name"/>
-            <input type="submit" value='Submit'/>
+            <input id="charName" type="text" ng-model="inputText" placeholder="Enter character name" required/>
+            <input type="submit" value='Submit' ng-click="hiding()"/>
         </form>
     </div>
 </div>
@@ -63,7 +63,7 @@
     <div class="row full-width">
         <div class="large-12 columns">
             <h4>Character Details</h4>
-            <h6>Character Class: <strong>{{ pushedName }}</strong></h6>
+            <h6>Character Class: <strong>{{ pushedName | stringFilter }}</strong></h6>
             <h6>Character Name: <strong>{{ inputCharName | stringFilter }}</strong></h6>
         </div>
     </div>
@@ -71,10 +71,10 @@
 
 <!-- ng-repeat character special abilities --->
 <div class="row">
-    <div class="large-3 columns" ng-repeat="ability in allAbilities">
+    <div class="large-3 columns" ng-repeat="ability in selectedCharacter">
         <div class="card">
             <div class="image">
-                <!--<img />-->
+                <img ng-src="{{ ability.image }}" />
                 <h2 class="title">{{ ability.name }}</h2>
             </div>
             <div class="content">
