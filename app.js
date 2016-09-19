@@ -17,23 +17,37 @@ app.controller('storeController', ["$scope", "classesService", "abilitiesService
     $scope.isDisabled = false;
     $scope.classOneFourthProgress = false;
 
+    // function to re-retotal points. Sets disabled for buttons, progress class for progress meter
     $scope.calcCostController = function(classCost) {
         $scope.totalSkillPoints = classesService.calcCostService($scope.totalSkillPoints, classCost);
         $scope.isDisabled = true;
         $scope.classOneFourthProgress = true;
     };
 
+    // function for active class on card
     $scope.activeCard = function(index) {
         $scope.selectedCard = index;
     };
 
-
+    // properties for naming character
     $scope.inputCharName = [];
     $scope.inputText = '';
     $scope.nameSubmit = function() {
             $scope.inputCharName.push(this.inputText);
             $scope.inputText = '';   // set text back to nothing
+    };
+
+
+    for (var key in classesService.classes) {
+        $scope.pushedName = [];
+        $scope.pushClassName = function() {
+            $scope.pushedName.push(classesService.classes[key].name);
+        }
     }
+
+    $scope.allAbilities = abilitiesService.allAbilities;
+
+
 
 }]);
 
@@ -70,7 +84,7 @@ app.service('classesService', function() {
         {
             name: 'Assassin',
             skill: 'ranged attacks',
-            weakness: 'hand-to-hand combat',
+            weakness: 'holy energy',
             cost: 3,
             image: 'https://hydra-media.cursecdn.com/diablo.gamepedia.com/3/37/Assassin.gif?version=52da562801e08e5f8f16a21ae3dbb43d',
             active: false
@@ -88,7 +102,7 @@ app.service('abilitiesService', function() {
 
     var abilitiesService = this;
 
-    var allAbilities = [];  //push at end
+    abilitiesService.allAbilities = [];  // push at end
     var Character = {'abilities':[]};
 
     abilitiesService.charName = '';
@@ -132,12 +146,22 @@ app.service('abilitiesService', function() {
         return Ability;
     }
 
-
     // push barbarian to allAbilities array
-    allAbilities.push(barbarian);
-    allAbilities.push(mage);
-    allAbilities.push(paladin);
-    allAbilities.push(assassin);
-    console.log(allAbilities);
+    abilitiesService.allAbilities.push(barbarian);
+    abilitiesService.allAbilities.push(mage);
+    abilitiesService.allAbilities.push(paladin);
+    abilitiesService.allAbilities.push(assassin);
+    console.log(abilitiesService.allAbilities);
 
+});
+
+
+// Custom filter for character name array
+app.filter('stringFilter', function() {
+
+    return function(input) {
+        if (input) {
+            return input.toString();
+        }
+    }
 });

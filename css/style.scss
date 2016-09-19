@@ -110,8 +110,20 @@ h1, h2 {
   transition: 1s;
 }
 
-#charName {
-  margin: 0 auto;
-  margin-bottom: 2rem;
+.nameBlock {
+  margin-top: 2rem;
+
+  #charName {
+    margin: 0 auto;
+    margin-bottom: 2rem;
+  }
+}
+
+.footer {
+  position: fixed;
+  width: 100%;
+  padding: 3rem;
+  bottom: 0;
+  background-color: gainsboro;
 }
 

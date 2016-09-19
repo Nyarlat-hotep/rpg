@@ -41,7 +41,7 @@
                 <h4 class="classCost">Cost: {{ class.cost }}</h4>
             </div>
             <div class="action">
-                <a class="button classSelectButton" ng-disabled="isDisabled" ng-click="calcCostController(class.cost); activeCard($index)">Select this class</a>
+                <a class="button classSelectButton" ng-hide="isDisabled" ng-click="calcCostController(class.cost); activeCard($index); pushClassName()">Select this class</a>
             </div>
         </div>
     </div>
@@ -49,17 +49,44 @@
 
 <!-- container for adding character name -->
 
-<div class="row">
+<div class="row nameBlock">
     <div class="large-5 columns large-centered" ng-show="isDisabled">
         <form ng-submit="nameSubmit()">
-            <h2>Your character name: <br>{{ inputText }}</h2>
+            <h4>Your character name: <br><strong>{{ inputText }}</strong></h4>
             <input id="charName" type="text" ng-model="inputText" placeholder="Enter character name"/>
             <input type="submit" value='Submit'/>
         </form>
     </div>
 </div>
 
+<footer class="footer">
+    <div class="row full-width">
+        <div class="large-12 columns">
+            <h4>Character Details</h4>
+            <h6>Character Class: <strong>{{ pushedName }}</strong></h6>
+            <h6>Character Name: <strong>{{ inputCharName | stringFilter }}</strong></h6>
+        </div>
+    </div>
+</footer>
+
 <!-- ng-repeat character special abilities --->
+<div class="row">
+    <div class="large-3 columns" ng-repeat="ability in allAbilities">
+        <div class="card">
+            <div class="image">
+                <!--<img />-->
+                <h2 class="title">{{ ability.name }}</h2>
+            </div>
+            <div class="content">
+                <p><strong>Description: </strong>{{ ability.description }}</p>
+                <h4 class="abilityCost">Cost: {{ ability.cost }}</h4>
+            </div>
+            <div class="action">
+                <a class="button">Select this ability</a>
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
 
