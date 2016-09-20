@@ -11,7 +11,6 @@ body {
 }
 
 .card.abilityCard {
-  height: 24rem;
   margin-bottom: 3rem;
 }
 
@@ -41,7 +40,6 @@ body {
 }
 
 .card .action {
-  border-top: 1px solid rgba(160, 160, 160, 0.2);
   text-align: center;
   padding-top: 1.3rem;
 }
@@ -77,11 +75,13 @@ body {
   color: #000;
 }
 
-h1 {
+h1, h2 {
   text-align: center;
-  margin-top: 7rem;
 }
 
+.classCard {
+  margin-top: 12rem;
+}
 
 #progressBarTitle {
   text-align: center;
@@ -108,7 +108,7 @@ h1 {
 }
 
 .progressContainer {
-  background-color: gainsboro;
+  background-color: darkorchid;
   position: fixed;
   z-index: 100;
   width: 62%;
@@ -127,6 +127,11 @@ h1 {
 
 .progress-meter-oneFourth {
   width: 25%;
+  transition: 1s;
+}
+
+.progress-meter-oneHalf {
+  width: 50%;
   transition: 1s;
 }
 
