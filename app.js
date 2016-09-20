@@ -4,14 +4,6 @@ var app = angular.module('storeApp', []);
 
 app.controller('storeController', ["$scope", "classesService", "abilitiesService", function($scope, classesService, abilitiesService) {
 
-    // $scope.currency = {
-    //     amount: 1000
-    // };
-    //
-    // $scope.purchase = function(weaponAmount) {
-    //     $scope.currency.amount -= weaponAmount;
-    // };
-
     $scope.totalSkillPoints = 10;
     $scope.classes = classesService.classes;
     $scope.isDisabled = false;
@@ -27,9 +19,9 @@ app.controller('storeController', ["$scope", "classesService", "abilitiesService
     // function for active class on card
     $scope.activeCard = function(index) {
         $scope.selectedCard = index;
-        $scope.selectedCharacter = abilitiesService.allAbilities[index].abilities;
+        $scope.selectedCharacter = abilitiesService.allAbilities[index].abilities;  // get char at specific index
         $scope.pushedName = [];
-        $scope.pushedName.push(classesService.classes[index].name);
+        $scope.pushedName.push(classesService.classes[index].name); // add class name to footer
     };
 
     // properties for naming character
@@ -42,13 +34,6 @@ app.controller('storeController', ["$scope", "classesService", "abilitiesService
 
     // access to abilities service
     $scope.allAbilities = abilitiesService.allAbilities;
-
-    $scope.hide = false;
-    $scope.hiding = function() {
-        $scope.hide = true;
-    };
-
-    $scope.selectedCharacter;
 
 }]);
 
@@ -107,13 +92,22 @@ app.service('abilitiesService', function() {
 
     abilitiesService.allAbilities = [];  // push at end
 
+
+    // New Object for Abilites
+    // function to create abilities per character
+    function createAbility (name, desc, cost, image) {
+        var Ability = {'name': name, 'description': desc, 'cost': cost, 'image': image};
+
+        return Ability;
+    }
+
     // New Object for Characters
     var barbarian = {'abilities':[]};
     // push barbarian abilities to abilities array in Character object
-    barbarian.abilities.push(createAbility("Bash", "A powerful smashing blow that knocks the target back.", 1 ));
-    barbarian.abilities.push(createAbility("Stun", "A successful attack briefly stuns the enemy.", 2));
-    barbarian.abilities.push(createAbility("Whirlwind", "A fierce spinning attack.", 3));
-    barbarian.abilities.push(createAbility("Berserk", "A powerful attack that leaves the Barbarian more vulnerable.", 3));
+    barbarian.abilities.push(createAbility("Bash", "A powerful smashing blow that knocks the target back.", 1, "https://hydra-media.cursecdn.com/diablo.gamepedia.com/e/e6/Bash_Icon.png?version=48660faeb7eb3976ccb1e92fde0abcbb"));
+    barbarian.abilities.push(createAbility("Stun", "A successful attack briefly stuns the enemy.", 2, "https://hydra-media.cursecdn.com/diablo.gamepedia.com/6/60/Stun_Icon.png?version=fe8644ced479540d3cf59e7373fe7146"));
+    barbarian.abilities.push(createAbility("Whirlwind", "A fierce spinning attack.", 3, "https://hydra-media.cursecdn.com/diablo.gamepedia.com/f/f4/Whirlwind_Icon.png?version=379cb85bd885db524d3df610bcd6c72a"));
+    barbarian.abilities.push(createAbility("Berserk", "A powerful attack that leaves the Barbarian more vulnerable.", 3, "https://hydra-media.cursecdn.com/diablo.gamepedia.com/c/c5/Berserk_Icon.png?version=8e96532155ffd518e66f04ca443084f8"));
 
     var mage = {'abilities':[]};
     mage.abilities.push(createAbility("Fire Bolt", "Casts a small projectile of fire through the air and in to one enemy.", 1));
@@ -137,14 +131,6 @@ app.service('abilitiesService', function() {
     assassin.abilities.push(createAbility("Death Sentry", "This trap emits projectiles laden with a potent chemical catalyst, detonating the exposed cadavers of slain enemies. Damage: 40-80% Of Corpse Life. Shoots 5 times.", 3));
     // assassin.abilities.splice(0, 4);
 
-
-    // New Object for Abilites
-    // function to create abilities per character
-    function createAbility (name, desc, cost) {
-        var Ability = {'name': name, 'description': desc, 'cost': cost};
-
-        return Ability;
-    }
 
     // push barbarian to allAbilities array
     abilitiesService.allAbilities.push(barbarian);

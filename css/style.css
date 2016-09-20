@@ -1,9 +1,16 @@
+body {
+  min-height: 100%; }
+
 .card {
   font-family: 'Roboto', sans-serif;
   overflow: hidden;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   color: #272727;
   border-radius: 2px; }
+
+.card.abilityCard {
+  height: 24rem;
+  margin-bottom: 3rem; }
 
 .selectedCard {
   background-color: crimson; }
@@ -45,6 +52,9 @@
     padding-bottom: 2rem;
     height: 15rem; }
 
+.card .image .abilityImage {
+  height: 6rem; }
+
 .card .image .title {
   position: absolute;
   bottom: -1.5rem;
@@ -52,18 +62,18 @@
   padding: 1.3rem;
   color: #000; }
 
-h1, h2 {
+h1 {
   text-align: center;
-  margin-top: 3rem; }
+  margin-top: 7rem; }
 
 #progressBarTitle {
   text-align: center; }
 
-.classSelectButton {
+.classSelectButton, .abilitySelectButton, #charNameSubmit {
   color: #3c3c3c;
   background-color: #ffd700;
   border-radius: 10px; }
-  .classSelectButton:hover {
+  .classSelectButton:hover, .abilitySelectButton:hover, #charNameSubmit:hover {
     background-color: #ccac00;
     color: #3c3c3c; }
 
@@ -72,6 +82,12 @@ h1, h2 {
   .classSelectButton[disabled]:hover {
     background-color: #ffd700;
     color: black; }
+
+.progressContainer {
+  background-color: gainsboro;
+  position: fixed;
+  z-index: 100;
+  width: 62%; }
 
 .progress {
   padding: 0; }
@@ -92,8 +108,13 @@ h1, h2 {
     margin: 0 auto;
     margin-bottom: 2rem; }
 
+#charNameSubmit {
+  margin-bottom: 3rem;
+  border: 0;
+  padding: .5rem 1rem; }
+
 .footer {
-  position: fixed;
+  display: inline-block;
   width: 100%;
   padding: 3rem;
   bottom: 0;
