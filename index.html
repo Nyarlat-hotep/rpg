@@ -14,81 +14,83 @@
 
 <body ng-controller="storeController">
 
-<div class="row">
-    <div class="large-12 columns large-centered progressContainer">
-        <h2>Your total skill points: {{ totalSkillPoints }}</h2>
-        <h4 id="progressBarTitle">Current progress</h4>
-        <div class="progress"  role="progressbar" tabindex="0" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-            <div class="progress-meter" ng-class="{'progress-meter-oneFourth': classOneFourthProgress, 'progress-meter-oneHalf': classHalfProgress}"></div>
+<div id="container">
+
+    <div class="row">
+        <div class="large-12 columns large-centered progressContainer">
+            <h2>Your total skill points: {{ totalSkillPoints }}</h2>
+            <h4 id="progressBarTitle">Current progress</h4>
+            <div class="progress" role="progressbar" tabindex="0" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-meter" ng-class="{'progress-meter-oneFourth': classOneFourthProgress, 'progress-meter-oneHalf': classHalfProgress}"></div>
+            </div>
         </div>
     </div>
+
+
+    <!--ng-repeat character class cards-->
+    <div class="row" ng-hide="hide">
+        <div class="large-3 columns" ng-repeat="class in classes">
+            <div class="card classCard" ng-class="{'activeCard' : $index == selectedCard}">
+                <div class="image">
+                    <img ng-src="{{ class.image }}">
+                    <h2 class="title">{{ class.name }}</h2>
+                </div>
+                <div class="content">
+                    <p><strong>Strength: </strong>{{ class.skill }}</p>
+                    <p><strong>Weakness: </strong>{{ class.weakness }}</p><br>
+                    <h5 class="classCost"><strong>Cost: </strong>{{ class.cost }}</h5>
+                </div>
+                <div class="action">
+                    <a class="button classSelectButton" ng-hide="isDisabled" ng-click="calcCostController(class.cost); activeCard($index)">Select this class</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- container for adding character name -->
+
+    <div class="row nameBlock">
+        <div class="large-5 columns large-centered" ng-show="isDisabled">
+            <form ng-submit="nameSubmit()">
+                <h4>Your character name: <br><strong>{{ inputText }}</strong></h4>
+                <input id="charName" type="text" ng-model="inputText" placeholder="Enter character name" required/>
+                <input id="charNameSubmit" type="submit" value='Submit'/>
+            </form>
+        </div>
+    </div>
+
+    <!-- ng-repeat character special abilities --->
+    <div class="row">
+        <div class="large-3 columns" ng-repeat="ability in selectedCharacter">
+            <div class="card abilityCard" ng-class="{'activeCard' : $index == selectedCard2}">
+                <div id="abilityImage" class="image">
+                    <img class="abilityImage" ng-src="{{ ability.image }}" />
+                    <h2 id="abilityTitle" class="title">{{ ability.name }}</h2>
+                </div>
+                <div class="content">
+                    <p><strong>Description: </strong>{{ ability.description }}</p>
+                    <h5 class="abilityCost"><strong>Cost: </strong>{{ ability.cost }}</h5>
+                </div>
+                <div class="action">
+                    <a class="button abilitySelectButton" ng-hide="isDisabled2" ng-click="calcCostController(ability.cost); activeAbilityCard($index)">Select this ability</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="row">
+            <div class="large-12 columns large-centered footer">
+                <h4 id="charDetails">Character Details</h4>
+                <h6>Character Class: <strong>{{ pushedName | stringFilter }}</strong></h6>
+                <h6>Character Name: <strong>{{ inputCharName | stringFilter }}</strong></h6>
+                <h6>Character Ability: <strong>{{ pushedAbility | stringFilter }}</strong></h6>
+            </div>
+        </div>
+    </footer>
+
 </div>
-
-
-<!--ng-repeat character class cards-->
-<div class="row" ng-hide="hide">
-    <div class="large-3 columns" ng-repeat="class in classes">
-        <div class="card classCard" ng-class="{'activeCard' : $index == selectedCard}">
-            <div class="image">
-                <img ng-src="{{ class.image }}">
-                <h2 class="title">{{ class.name }}</h2>
-            </div>
-            <div class="content">
-                <p><strong>Strength: </strong>{{ class.skill }}</p>
-                <p><strong>Weakness: </strong>{{ class.weakness }}</p><br>
-                <h5 class="classCost"><strong>Cost: </strong>{{ class.cost }}</h5>
-            </div>
-            <div class="action">
-                <a class="button classSelectButton" ng-hide="isDisabled" ng-click="calcCostController(class.cost); activeCard($index)">Select this class</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- container for adding character name -->
-
-<div class="row nameBlock">
-    <div class="large-5 columns large-centered" ng-show="isDisabled">
-        <form ng-submit="nameSubmit()">
-            <h4>Your character name: <br><strong>{{ inputText }}</strong></h4>
-            <input id="charName" type="text" ng-model="inputText" placeholder="Enter character name" required/>
-            <input id="charNameSubmit" type="submit" value='Submit'/>
-        </form>
-    </div>
-</div>
-
-<!-- ng-repeat character special abilities --->
-<div class="row">
-    <div class="large-3 columns" ng-repeat="ability in selectedCharacter">
-        <div class="card abilityCard" ng-class="{'activeCard' : $index == selectedCard2}">
-            <div class="image">
-                <img class="abilityImage" ng-src="{{ ability.image }}" />
-                <h2 class="title">{{ ability.name }}</h2>
-            </div>
-            <div class="content">
-                <p><strong>Description: </strong>{{ ability.description }}</p>
-                <h5 class="abilityCost"><strong>Cost: </strong>{{ ability.cost }}</h5>
-            </div>
-            <div class="action">
-                <a class="button abilitySelectButton" ng-hide="isDisabled2" ng-click="calcCostController(ability.cost); activeAbilityCard($index)">Select this ability</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Footer -->
-<footer class="footer">
-    <div class="row full-width">
-        <div class="large-6 columns">
-            <h4>Character Details</h4>
-            <h6>Character Class: <strong>{{ pushedName | stringFilter }}</strong></h6>
-            <h6>Character Name: <strong>{{ inputCharName | stringFilter }}</strong></h6>
-        </div>
-        <div class="large-6 columns">
-            <h6>Character Ability: <strong>{{ pushedAbility | stringFilter }}</strong></h6>
-        </div>
-    </div>
-</footer>
 
 </body>
 

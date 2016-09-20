@@ -1,5 +1,12 @@
 body {
   min-height: 100%;
+  background: rgb(49, 11, 7);
+
+  #container {
+    background: black;
+    width: 79%;
+    margin: 0 auto;
+  }
 }
 
 .card {
@@ -28,6 +35,8 @@ body {
   padding: 1.3rem;
   font-weight: 300;
   border-radius: 0 0 2px 2px;
+  background-color: #222;
+  color: rgb(161, 142, 115);
 }
 
 .activeCard {
@@ -42,6 +51,7 @@ body {
 .card .action {
   text-align: center;
   padding-top: 1.3rem;
+  background-color: #222;
 }
 
 .card a {
@@ -52,7 +62,7 @@ body {
 
 .card .image {
   position: relative;
-  background-color: silver;
+  background-color: #222;
   padding: 1rem 0;
 
   img {
@@ -72,11 +82,23 @@ body {
   bottom: -1.5rem;
   left: 0;
   padding: 1.3rem;
-  color: #000;
+  color: rgb(161, 142, 115);
+  top: 13.5rem;
 }
 
-h1, h2 {
+#abilityImage {
+  padding-bottom: 2rem;
+}
+
+#abilityTitle {
   text-align: center;
+  width: 100%;
+  top: 4rem;
+}
+
+h1, h2, h4 {
+  text-align: center;
+  color: rgb(224, 176, 33);
 }
 
 .classCard {
@@ -85,15 +107,15 @@ h1, h2 {
 
 #progressBarTitle {
   text-align: center;
+  color: rgb(224, 176, 33);
 }
 
 .classSelectButton, .abilitySelectButton, #charNameSubmit {
   color: #3c3c3c;
-  background-color: #ffd700;
-  border-radius: 10px;
+  background-color: rgb(224, 176, 33);
 
   &:hover {
-    background-color: #ccac00;
+    background-color: rgb(175, 131, 59);
     color: #3c3c3c;
   }
 }
@@ -108,21 +130,23 @@ h1, h2 {
 }
 
 .progressContainer {
-  background-color: darkorchid;
+  background-color: #222;
+  border: 1px solid rgb(94, 12, 0);
   position: fixed;
   z-index: 100;
-  width: 62%;
+  width: 63%;
 }
 
 .progress {
   padding: 0;
+  background-color: gray;
 }
 
 .progress-meter {
   position: relative;
   display: block;
   height: 100%;
-  background-color: rgb(33, 153, 232);
+  background-color: rgb(196, 46, 61);
 }
 
 .progress-meter-oneFourth {
@@ -151,10 +175,15 @@ h1, h2 {
 }
 
 .footer {
-  display: inline-block;
-  width: 100%;
+  margin: 0 auto;
   padding: 3rem;
   bottom: 0;
-  background-color: gainsboro;
+  background-color: #222;
+  color: rgb(161, 142, 115);
+  border: 1px solid rgb(94, 12, 0);
+
+  #charDetails {
+    text-align: left;
+  }
 }
 

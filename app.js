@@ -32,7 +32,7 @@ app.controller('storeController', ["$scope", "classesService", "abilitiesService
         $scope.isDisabled2 = true;
         $scope.classHalfProgress = true;
         $scope.pushedAbility = [];
-        $scope.pushedAbility.push(abilitiesService.allAbilities[index].abilities[index].name);
+        $scope.pushedAbility.push(abilitiesService.allAbilities[$scope.selectedCard].abilities[index].name);
     };
 
     // properties for naming character

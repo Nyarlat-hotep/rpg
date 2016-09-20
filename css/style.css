@@ -1,5 +1,10 @@
 body {
-  min-height: 100%; }
+  min-height: 100%;
+  background: #310b07; }
+  body #container {
+    background: black;
+    width: 79%;
+    margin: 0 auto; }
 
 .card {
   font-family: 'Roboto', sans-serif;
@@ -22,7 +27,9 @@ body {
 .card .content {
   padding: 1.3rem;
   font-weight: 300;
-  border-radius: 0 0 2px 2px; }
+  border-radius: 0 0 2px 2px;
+  background-color: #222;
+  color: #a18e73; }
 
 .activeCard {
   background-color: black;
@@ -33,7 +40,8 @@ body {
 
 .card .action {
   text-align: center;
-  padding-top: 1.3rem; }
+  padding-top: 1.3rem;
+  background-color: #222; }
 
 .card a {
   transition: color 0.3s ease;
@@ -42,7 +50,7 @@ body {
 
 .card .image {
   position: relative;
-  background-color: silver;
+  background-color: #222;
   padding: 1rem 0; }
   .card .image img {
     margin: 0 auto;
@@ -58,23 +66,33 @@ body {
   bottom: -1.5rem;
   left: 0;
   padding: 1.3rem;
-  color: #000; }
+  color: #a18e73;
+  top: 13.5rem; }
 
-h1, h2 {
-  text-align: center; }
+#abilityImage {
+  padding-bottom: 2rem; }
+
+#abilityTitle {
+  text-align: center;
+  width: 100%;
+  top: 4rem; }
+
+h1, h2, h4 {
+  text-align: center;
+  color: #e0b021; }
 
 .classCard {
   margin-top: 12rem; }
 
 #progressBarTitle {
-  text-align: center; }
+  text-align: center;
+  color: #e0b021; }
 
 .classSelectButton, .abilitySelectButton, #charNameSubmit {
   color: #3c3c3c;
-  background-color: #ffd700;
-  border-radius: 10px; }
+  background-color: #e0b021; }
   .classSelectButton:hover, .abilitySelectButton:hover, #charNameSubmit:hover {
-    background-color: #ccac00;
+    background-color: #af833b;
     color: #3c3c3c; }
 
 .classSelectButton[disabled] {
@@ -84,19 +102,21 @@ h1, h2 {
     color: black; }
 
 .progressContainer {
-  background-color: darkorchid;
+  background-color: #222;
+  border: 1px solid #5e0c00;
   position: fixed;
   z-index: 100;
-  width: 62%; }
+  width: 63%; }
 
 .progress {
-  padding: 0; }
+  padding: 0;
+  background-color: gray; }
 
 .progress-meter {
   position: relative;
   display: block;
   height: 100%;
-  background-color: #2199e8; }
+  background-color: #c42e3d; }
 
 .progress-meter-oneFourth {
   width: 25%;
@@ -118,8 +138,11 @@ h1, h2 {
   padding: .5rem 1rem; }
 
 .footer {
-  display: inline-block;
-  width: 100%;
+  margin: 0 auto;
   padding: 3rem;
   bottom: 0;
-  background-color: gainsboro; }
+  background-color: #222;
+  color: #a18e73;
+  border: 1px solid #5e0c00; }
+  .footer #charDetails {
+    text-align: left; }
