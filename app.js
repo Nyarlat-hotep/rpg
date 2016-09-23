@@ -2,7 +2,7 @@
 var app = angular.module('storeApp', []);
 
 
-app.controller('storeController', ["$scope", "classesService", "abilitiesService", function($scope, classesService, abilitiesService) {
+app.controller('storeController', ["$scope", "classesService", "abilitiesService", "weaponService", function($scope, classesService, abilitiesService, weaponService) {
 
     $scope.totalSkillPoints = 10;
     $scope.classes = classesService.classes;
@@ -45,6 +45,9 @@ app.controller('storeController', ["$scope", "classesService", "abilitiesService
 
     // access to abilities service
     $scope.allAbilities = abilitiesService.allAbilities;
+
+    // access to weapons service
+    $scope.allWeapons = weaponService.allWeapons;
 
 }]);
 
@@ -146,8 +149,34 @@ app.service('abilitiesService', function() {
     abilitiesService.allAbilities.push(mage);
     abilitiesService.allAbilities.push(paladin);
     abilitiesService.allAbilities.push(assassin);
-    console.log(abilitiesService.allAbilities);
 
+});
+
+
+app.service('weaponService', function () {
+
+    var weaponService = this;
+
+    function Weapon(name, desc, cost, image) {
+        this.name = name;
+        this.description = desc;
+        this.cost = cost;
+        this.image = image;
+    }
+
+    var sword = new Weapon('Sword', 'Weapon used for hack and slash fighting.', 2, 'http://game-icons.net/icons/lorc/originals/png/000000/transparent/spinning-sword.png');
+    var axe = new Weapon('Axe', 'Heavy weapon used for causing major limb damage.', 3, 'http://plainicon.com/dboard/userprod/2921_4eb4c/prod_thumb/plainicon.com-58663-512px-87e.png');
+    var spear = new Weapon('Spear', 'Light weapon used for mid-range fighting.', 2, 'https://d30y9cdsu7xlg0.cloudfront.net/png/33215-200.png');
+    var wand = new Weapon('Wand', 'Weapon imbued with magical powers. Used for long distance fighting', 3, 'https://d30y9cdsu7xlg0.cloudfront.net/png/1294-200.png');
+
+
+    weaponService.allWeapons = [];
+
+    weaponService.allWeapons.push(sword);
+    weaponService.allWeapons.push(axe);
+    weaponService.allWeapons.push(spear);
+    weaponService.allWeapons.push(wand);
+    console.log(weaponService.allWeapons);
 });
 
 

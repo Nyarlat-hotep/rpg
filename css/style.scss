@@ -9,6 +9,10 @@ body {
   }
 }
 
+.headerContainer {
+  border: 1px solid rgb(94, 12, 0);
+}
+
 .card {
   font-family: 'Roboto', sans-serif;
   overflow: hidden;
@@ -19,6 +23,7 @@ body {
 
 .card.abilityCard {
   margin-bottom: 3rem;
+  align-items: stretch;
 }
 
 .selectedCard {
@@ -102,7 +107,7 @@ h1, h2, h4 {
 }
 
 .classCard {
-  margin-top: 12rem;
+  margin-top: 4rem;
 }
 
 #progressBarTitle {
@@ -131,10 +136,8 @@ h1, h2, h4 {
 
 .progressContainer {
   background-color: #222;
-  border: 1px solid rgb(94, 12, 0);
-  position: fixed;
   z-index: 100;
-  width: 63%;
+  padding: 3rem;
 }
 
 .progress {
@@ -150,12 +153,12 @@ h1, h2, h4 {
 }
 
 .progress-meter-oneFourth {
-  width: 25%;
+  width: 33.333%;
   transition: 1s;
 }
 
 .progress-meter-oneHalf {
-  width: 50%;
+  width: 66.666%;
   transition: 1s;
 }
 
@@ -176,11 +179,10 @@ h1, h2, h4 {
 
 .footer {
   margin: 0 auto;
-  padding: 3rem;
+  padding: 3.2rem;
   bottom: 0;
   background-color: #222;
   color: rgb(161, 142, 115);
-  border: 1px solid rgb(94, 12, 0);
 
   #charDetails {
     text-align: left;

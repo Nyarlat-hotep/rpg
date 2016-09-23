@@ -6,6 +6,9 @@ body {
     width: 79%;
     margin: 0 auto; }
 
+.headerContainer {
+  border: 1px solid #5e0c00; }
+
 .card {
   font-family: 'Roboto', sans-serif;
   overflow: hidden;
@@ -14,7 +17,8 @@ body {
   border-radius: 2px; }
 
 .card.abilityCard {
-  margin-bottom: 3rem; }
+  margin-bottom: 3rem;
+  align-items: stretch; }
 
 .selectedCard {
   background-color: crimson; }
@@ -82,7 +86,7 @@ h1, h2, h4 {
   color: #e0b021; }
 
 .classCard {
-  margin-top: 12rem; }
+  margin-top: 4rem; }
 
 #progressBarTitle {
   text-align: center;
@@ -103,10 +107,8 @@ h1, h2, h4 {
 
 .progressContainer {
   background-color: #222;
-  border: 1px solid #5e0c00;
-  position: fixed;
   z-index: 100;
-  width: 63%; }
+  padding: 3rem; }
 
 .progress {
   padding: 0;
@@ -119,11 +121,11 @@ h1, h2, h4 {
   background-color: #c42e3d; }
 
 .progress-meter-oneFourth {
-  width: 25%;
+  width: 33.333%;
   transition: 1s; }
 
 .progress-meter-oneHalf {
-  width: 50%;
+  width: 66.666%;
   transition: 1s; }
 
 .nameBlock {
@@ -139,10 +141,9 @@ h1, h2, h4 {
 
 .footer {
   margin: 0 auto;
-  padding: 3rem;
+  padding: 3.2rem;
   bottom: 0;
   background-color: #222;
-  color: #a18e73;
-  border: 1px solid #5e0c00; }
+  color: #a18e73; }
   .footer #charDetails {
     text-align: left; }
