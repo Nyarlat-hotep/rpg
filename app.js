@@ -9,7 +9,9 @@ app.controller('storeController', ["$scope", "classesService", "abilitiesService
     $scope.isDisabled = false;
     $scope.classOneFourthProgress = false;
     $scope.isDisabled2 = false;
-    $scope.classHalfProgress = false;
+    $scope.classHalfProgress = false;   // for half progress bar
+    $scope.isDisabled3 = false;
+    $scope.progressFull = false;    // for full progress bar
 
     // function to re-retotal points. Sets disabled for buttons, progress class for progress meter
     $scope.calcCostController = function(classCost) {
@@ -33,6 +35,15 @@ app.controller('storeController', ["$scope", "classesService", "abilitiesService
         $scope.classHalfProgress = true;
         $scope.pushedAbility = [];
         $scope.pushedAbility.push(abilitiesService.allAbilities[$scope.selectedCard].abilities[index].name);
+    };
+
+    // function for active weapon card
+    $scope.activeWeaponCard = function(index) {
+        $scope.selectedCard3 = index;
+        $scope.isDisabled3 = true;
+        $scope.progressFull = true;
+        $scope.pushedWeapon = [];
+        $scope.pushedWeapon.push(weaponService.allWeapons[index].name);
     };
 
     // properties for naming character
@@ -164,7 +175,7 @@ app.service('weaponService', function () {
         this.image = image;
     }
 
-    var sword = new Weapon('Sword', 'Weapon used for hack and slash fighting.', 2, 'http://game-icons.net/icons/lorc/originals/png/000000/transparent/spinning-sword.png');
+    var sword = new Weapon('Sword', 'Weapon used for hack and slash fighting.', 2, 'http://www.freeiconspng.com/uploads/sword-png-31.png');
     var axe = new Weapon('Axe', 'Heavy weapon used for causing major limb damage.', 3, 'http://plainicon.com/dboard/userprod/2921_4eb4c/prod_thumb/plainicon.com-58663-512px-87e.png');
     var spear = new Weapon('Spear', 'Light weapon used for mid-range fighting.', 2, 'https://d30y9cdsu7xlg0.cloudfront.net/png/33215-200.png');
     var wand = new Weapon('Wand', 'Weapon imbued with magical powers. Used for long distance fighting', 3, 'https://d30y9cdsu7xlg0.cloudfront.net/png/1294-200.png');

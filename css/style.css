@@ -6,6 +6,10 @@ body {
     width: 79%;
     margin: 0 auto; }
 
+h1, h2, h4 {
+  text-align: center;
+  color: #e0b021; }
+
 .headerContainer {
   border: 1px solid #5e0c00; }
 
@@ -13,8 +17,9 @@ body {
   font-family: 'Roboto', sans-serif;
   overflow: hidden;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-  color: #272727;
-  border-radius: 2px; }
+  color: #a18e73;
+  border-radius: 2px;
+  background-color: #222; }
 
 .card.abilityCard {
   margin-bottom: 3rem;
@@ -31,12 +36,10 @@ body {
 .card .content {
   padding: 1.3rem;
   font-weight: 300;
-  border-radius: 0 0 2px 2px;
-  background-color: #222;
-  color: #a18e73; }
+  border-radius: 0 0 2px 2px; }
 
 .activeCard {
-  background-color: black;
+  background-color: #5e0c00;
   color: white; }
 
 .card p {
@@ -44,8 +47,7 @@ body {
 
 .card .action {
   text-align: center;
-  padding-top: 1.3rem;
-  background-color: #222; }
+  padding-top: 1.3rem; }
 
 .card a {
   transition: color 0.3s ease;
@@ -54,7 +56,6 @@ body {
 
 .card .image {
   position: relative;
-  background-color: #222;
   padding: 1rem 0; }
   .card .image img {
     margin: 0 auto;
@@ -70,7 +71,6 @@ body {
   bottom: -1.5rem;
   left: 0;
   padding: 1.3rem;
-  color: #a18e73;
   top: 13.5rem; }
 
 #abilityImage {
@@ -81,21 +81,16 @@ body {
   width: 100%;
   top: 4rem; }
 
-h1, h2, h4 {
-  text-align: center;
-  color: #e0b021; }
-
-.classCard {
-  margin-top: 4rem; }
-
 #progressBarTitle {
   text-align: center;
   color: #e0b021; }
 
-.classSelectButton, .abilitySelectButton, #charNameSubmit {
+.classSelectButton, .abilitySelectButton,
+#charNameSubmit, .weaponSelectButton {
   color: #3c3c3c;
   background-color: #e0b021; }
-  .classSelectButton:hover, .abilitySelectButton:hover, #charNameSubmit:hover {
+  .classSelectButton:hover, .abilitySelectButton:hover,
+  #charNameSubmit:hover, .weaponSelectButton:hover {
     background-color: #af833b;
     color: #3c3c3c; }
 
@@ -118,7 +113,7 @@ h1, h2, h4 {
   position: relative;
   display: block;
   height: 100%;
-  background-color: #c42e3d; }
+  background-color: #5e0c00; }
 
 .progress-meter-oneFourth {
   width: 33.333%;
@@ -126,6 +121,10 @@ h1, h2, h4 {
 
 .progress-meter-oneHalf {
   width: 66.666%;
+  transition: 1s; }
+
+.progress-meter-full {
+  width: 100%;
   transition: 1s; }
 
 .nameBlock {
@@ -138,6 +137,11 @@ h1, h2, h4 {
   margin-bottom: 3rem;
   border: 0;
   padding: .5rem 1rem; }
+
+#weaponHeader, #classHeader,
+#abilityHeader {
+  color: #e0b021;
+  padding-left: 1rem; }
 
 .footer {
   margin: 0 auto;

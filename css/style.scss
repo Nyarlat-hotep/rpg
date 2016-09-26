@@ -9,6 +9,11 @@ body {
   }
 }
 
+h1, h2, h4 {
+  text-align: center;
+  color: rgb(224, 176, 33);
+}
+
 .headerContainer {
   border: 1px solid rgb(94, 12, 0);
 }
@@ -17,8 +22,9 @@ body {
   font-family: 'Roboto', sans-serif;
   overflow: hidden;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-  color: #272727;
+  color: rgb(161, 142, 115);
   border-radius: 2px;
+  background-color: #222;
 }
 
 .card.abilityCard {
@@ -40,12 +46,10 @@ body {
   padding: 1.3rem;
   font-weight: 300;
   border-radius: 0 0 2px 2px;
-  background-color: #222;
-  color: rgb(161, 142, 115);
 }
 
 .activeCard {
-  background-color: black;
+  background-color: rgb(94, 12, 0);
   color: white;
 }
 
@@ -56,7 +60,6 @@ body {
 .card .action {
   text-align: center;
   padding-top: 1.3rem;
-  background-color: #222;
 }
 
 .card a {
@@ -67,7 +70,6 @@ body {
 
 .card .image {
   position: relative;
-  background-color: #222;
   padding: 1rem 0;
 
   img {
@@ -87,7 +89,6 @@ body {
   bottom: -1.5rem;
   left: 0;
   padding: 1.3rem;
-  color: rgb(161, 142, 115);
   top: 13.5rem;
 }
 
@@ -101,21 +102,15 @@ body {
   top: 4rem;
 }
 
-h1, h2, h4 {
-  text-align: center;
-  color: rgb(224, 176, 33);
-}
 
-.classCard {
-  margin-top: 4rem;
-}
 
 #progressBarTitle {
   text-align: center;
   color: rgb(224, 176, 33);
 }
 
-.classSelectButton, .abilitySelectButton, #charNameSubmit {
+.classSelectButton, .abilitySelectButton,
+#charNameSubmit, .weaponSelectButton {
   color: #3c3c3c;
   background-color: rgb(224, 176, 33);
 
@@ -149,7 +144,7 @@ h1, h2, h4 {
   position: relative;
   display: block;
   height: 100%;
-  background-color: rgb(196, 46, 61);
+  background-color: rgb(94, 12, 0);
 }
 
 .progress-meter-oneFourth {
@@ -159,6 +154,11 @@ h1, h2, h4 {
 
 .progress-meter-oneHalf {
   width: 66.666%;
+  transition: 1s;
+}
+
+.progress-meter-full {
+  width: 100%;
   transition: 1s;
 }
 
@@ -175,6 +175,12 @@ h1, h2, h4 {
   margin-bottom: 3rem;
   border: 0;
   padding: .5rem 1rem;
+}
+
+#weaponHeader, #classHeader,
+#abilityHeader {
+  color: rgb(224, 176, 33);
+  padding-left: 1rem;
 }
 
 .footer {
