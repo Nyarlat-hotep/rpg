@@ -39,7 +39,7 @@
 
     <!--ng-repeat character class cards-->
     <div class="row" ng-hide="hide">
-        <h3 id="classHeader">Select Class</h3>
+        <h3 id="classHeader">Choose one class</h3>
         <div class="large-3 columns" ng-repeat="class in classes">
             <div class="card classCard" ng-class="{'activeCard' : $index == selectedCard}">
                 <div class="image">
@@ -52,7 +52,7 @@
                     <h5 class="classCost"><strong>Cost: </strong>{{ class.cost }}</h5>
                 </div>
                 <div class="action">
-                    <a class="button classSelectButton" ng-hide="isDisabled" ng-click="calcCostController(class.cost); activeCard($index)">Select this class</a>
+                    <a class="button classSelectButton" ng-hide="isDisabled" ng-click="calcCostController(class.cost); activeClassCard($index)">Select this class</a>
                 </div>
             </div>
         </div>
@@ -71,7 +71,7 @@
 
     <!-- ng-repeat character special abilities --->
     <div class="row">
-        <h3 id="abilityHeader">Select an ability</h3>
+        <!--<h3 id="abilityHeader">Select an ability</h3>-->
         <div class="large-3 columns" ng-repeat="ability in selectedCharacter">
             <div class="card abilityCard" ng-class="{'activeCard' : $index == selectedCard2}">
                 <div id="abilityImage" class="image">
@@ -91,8 +91,8 @@
 
     <!-- ng-repeat character weapon -->
     <div class="row">
-        <h3 id="weaponHeader">Select a weapon</h3>
-        <div class="large-3 columns" ng-repeat="weapon in allWeapons">
+        <!--<h3 id="weaponHeader">Select a weapon</h3>-->
+        <div class="large-3 columns" ng-repeat="weapon in allWeapons" ng-show="isDisabled">
             <div class="card" ng-class="{'activeCard' : $index == selectedCard3}">
                 <div id="weaponImage" class="image">
                     <img ng-src="{{ weapon.image }}" />

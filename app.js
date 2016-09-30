@@ -21,12 +21,16 @@ app.controller('storeController', ["$scope", "classesService", "abilitiesService
     };
 
     // function for active class card
-    $scope.activeCard = function(index) {
+    $scope.activeClassCard = function(index) {
         $scope.selectedCard = index;
         $scope.selectedCharacter = abilitiesService.allAbilities[index].abilities;  // get char at specific index
         $scope.pushedName = [];
         $scope.pushedName.push(classesService.classes[index].name); // add class name to footer
     };
+
+
+    // access to abilities service
+    $scope.allAbilities = abilitiesService.allAbilities;
 
     // function for active ability card
     $scope.activeAbilityCard = function(index) {
@@ -36,6 +40,10 @@ app.controller('storeController', ["$scope", "classesService", "abilitiesService
         $scope.pushedAbility = [];
         $scope.pushedAbility.push(abilitiesService.allAbilities[$scope.selectedCard].abilities[index].name);
     };
+
+
+    // access to weapons service
+    $scope.allWeapons = weaponService.allWeapons;
 
     // function for active weapon card
     $scope.activeWeaponCard = function(index) {
@@ -53,12 +61,6 @@ app.controller('storeController', ["$scope", "classesService", "abilitiesService
             $scope.inputCharName.push(this.inputText);
             $scope.inputText = '';   // set text back to nothing
     };
-
-    // access to abilities service
-    $scope.allAbilities = abilitiesService.allAbilities;
-
-    // access to weapons service
-    $scope.allWeapons = weaponService.allWeapons;
 
 }]);
 

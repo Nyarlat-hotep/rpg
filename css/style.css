@@ -11,7 +11,8 @@ h1, h2, h4 {
   color: #e0b021; }
 
 .headerContainer {
-  border: 1px solid #5e0c00; }
+  border: 1px solid #5e0c00;
+  margin-bottom: 2rem; }
 
 .card {
   font-family: 'Roboto', sans-serif;
@@ -103,7 +104,7 @@ h1, h2, h4 {
 .progressContainer {
   background-color: #222;
   z-index: 100;
-  padding: 3rem; }
+  padding: 3rem 2rem 4.9rem 2rem; }
 
 .progress {
   padding: 0;

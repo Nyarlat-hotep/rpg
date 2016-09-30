@@ -16,6 +16,7 @@ h1, h2, h4 {
 
 .headerContainer {
   border: 1px solid rgb(94, 12, 0);
+  margin-bottom: 2rem;
 }
 
 .card {
@@ -103,7 +104,6 @@ h1, h2, h4 {
 }
 
 
-
 #progressBarTitle {
   text-align: center;
   color: rgb(224, 176, 33);
@@ -132,7 +132,7 @@ h1, h2, h4 {
 .progressContainer {
   background-color: #222;
   z-index: 100;
-  padding: 3rem;
+  padding: 3rem 2rem 4.9rem 2rem;
 }
 
 .progress {
