@@ -30,7 +30,6 @@ h1, h2, h4 {
 
 .card.abilityCard {
   margin-bottom: 3rem;
-  align-items: stretch;
 }
 
 .selectedCard {
@@ -177,8 +176,7 @@ h1, h2, h4 {
   padding: .5rem 1rem;
 }
 
-#weaponHeader, #classHeader,
-#abilityHeader {
+.header {
   color: rgb(224, 176, 33);
   padding-left: 1rem;
 }

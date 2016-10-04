@@ -8,10 +8,13 @@ app.controller('storeController', ["$scope", "classesService", "abilitiesService
     $scope.classes = classesService.classes;
     $scope.isDisabled = false;
     $scope.classOneFourthProgress = false;
-    $scope.isDisabled2 = false;
+    $scope.abilitiesDisabled = false;
+    $scope.abilityButtonDisabled = false;
     $scope.classHalfProgress = false;   // for half progress bar
-    $scope.isDisabled3 = false;
+    $scope.weaponsDisabled = false;
+    $scope.weaponButtonDisabled = false;
     $scope.progressFull = false;    // for full progress bar
+    $scope.nextButtonDisabled = false;
 
     // function to re-retotal points. Sets disabled for buttons, progress class for progress meter
     $scope.calcCostController = function(classCost) {
@@ -22,7 +25,7 @@ app.controller('storeController', ["$scope", "classesService", "abilitiesService
 
     // function for active class card
     $scope.activeClassCard = function(index) {
-        $scope.selectedCard = index;
+        $scope.classCard = index;
         $scope.selectedCharacter = abilitiesService.allAbilities[index].abilities;  // get char at specific index
         $scope.pushedName = [];
         $scope.pushedName.push(classesService.classes[index].name); // add class name to footer
@@ -34,11 +37,16 @@ app.controller('storeController', ["$scope", "classesService", "abilitiesService
 
     // function for active ability card
     $scope.activeAbilityCard = function(index) {
-        $scope.selectedCard2 = index;
-        $scope.isDisabled2 = true;
+        $scope.abilitiesCard = index;
         $scope.classHalfProgress = true;
         $scope.pushedAbility = [];
-        $scope.pushedAbility.push(abilitiesService.allAbilities[$scope.selectedCard].abilities[index].name);
+        $scope.pushedAbility.push(abilitiesService.allAbilities[$scope.classCard].abilities[index].name);
+        $scope.abilityButtonDisabled = true;
+        $scope.weaponsDisabled = true;
+    };
+
+    $scope.abilityDisabled = function() {
+        $scope.abilitiesDisabled = true;
     };
 
 
@@ -47,11 +55,12 @@ app.controller('storeController', ["$scope", "classesService", "abilitiesService
 
     // function for active weapon card
     $scope.activeWeaponCard = function(index) {
-        $scope.selectedCard3 = index;
-        $scope.isDisabled3 = true;
+        $scope.weaponCard = index;
         $scope.progressFull = true;
         $scope.pushedWeapon = [];
         $scope.pushedWeapon.push(weaponService.allWeapons[index].name);
+        $scope.weaponButtonDisabled = true;
+        $scope.nextButtonDisabled = true;
     };
 
     // properties for naming character

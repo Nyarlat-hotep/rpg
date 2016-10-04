@@ -23,8 +23,7 @@ h1, h2, h4 {
   background-color: #222; }
 
 .card.abilityCard {
-  margin-bottom: 3rem;
-  align-items: stretch; }
+  margin-bottom: 3rem; }
 
 .selectedCard {
   background-color: crimson; }
@@ -139,8 +138,7 @@ h1, h2, h4 {
   border: 0;
   padding: .5rem 1rem; }
 
-#weaponHeader, #classHeader,
-#abilityHeader {
+.header {
   color: #e0b021;
   padding-left: 1rem; }
 
