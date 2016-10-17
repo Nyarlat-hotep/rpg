@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Store</title>
+    <script src="jquery-3.1.1.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
     <script src="//code.angularjs.org/1.5.7/angular-route.js"></script>
     <script src="app.js"></script>
     <link rel="stylesheet" href="foundation-6.2.3-complete/css/foundation.css"/>
-    <link rel="stylesheet" href="jquery-3.1.1.min.js"/>
     <link rel="stylesheet" href="css/style.scss"/>
     <link rel="stylesheet" href="css/style.css"/>
+
 </head>
 
 
@@ -17,94 +18,87 @@
 
 <div id="container">
 
-    <div class="row headerContainer">
-        <div class="large-6 columns progressContainer">
-            <h2>Your total skill points: {{ totalSkillPoints }}</h2>
-            <h4 id="progressBarTitle">Current progress</h4>
-            <div class="progress" role="progressbar" tabindex="0" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                <div class="progress-meter" ng-class="{'progress-meter-oneFourth': classOneFourthProgress, 'progress-meter-oneHalf': classHalfProgress, 'progress-meter-full': progressFull}"></div>
-            </div>
-        </div>
-
-        <div>
-            <div class="large-6 columns footer">
-                <h4 id="charDetails">Character Details</h4>
-                <h6>Character Class: <strong>{{ pushedName | stringFilter }}</strong></h6>
-                <h6>Character Name: <strong>{{ inputCharName | stringFilter }}</strong></h6>
-                <h6>Character Ability: <strong>{{ pushedAbility | stringFilter }}</strong></h6>
-                <h6>Character Weapon: <strong>{{ pushedWeapon | stringFilter }}</strong></h6>
-            </div>
-        </div>
-    </div>
-
-
-    <!--ng-repeat character class cards-->
-    <div class="row" ng-hide="hide">
-        <h3 class="header">Choose one class</h3>
-        <div class="large-3 columns" ng-repeat="class in classes">
-            <div class="card classCard" ng-class="{'activeCard' : $index == classCard}">
-                <div class="image">
-                    <img ng-src="{{ class.image }}">
-                    <h2 class="title">{{ class.name }}</h2>
-                </div>
-                <div class="content">
-                    <p><strong>Strength: </strong>{{ class.skill }}</p>
-                    <p><strong>Weakness: </strong>{{ class.weakness }}</p><br>
-                    <h5 class="classCost"><strong>Cost: </strong>{{ class.cost }}</h5>
-                </div>
-                <div class="action">
-                    <a class="button classSelectButton" ng-hide="isDisabled" ng-click="calcCostController(class.cost); activeClassCard($index)">Select this class</a>
+    <div class="headerContainer">
+        <div class="row">
+            <div class="large-12 columns progressContainer">
+                <h2>Your total skill points: {{ totalSkillPoints }}</h2>
+                <h4 id="progressBarTitle">Current progress</h4>
+                <div class="progress" role="progressbar" tabindex="0" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-meter" ng-class="{'progress-meter-oneFourth': classOneFourthProgress, 'progress-meter-oneHalf': classHalfProgress, 'progress-meter-full': progressFull}"></div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- container for adding character name -->
-    <div class="row nameBlock">
-        <div class="large-5 columns large-centered" ng-show="isDisabled">
-            <form ng-submit="nameSubmit()">
-                <h4>Your character name: <br><strong>{{ inputText }}</strong></h4>
-                <input id="charName" type="text" ng-model="inputText" placeholder="Enter character name" required/>
-                <input id="charNameSubmit" type="submit" value='Submit' ng-click="abilityDisabled()"/>
-            </form>
-        </div>
-    </div>
-
-    <!-- ng-repeat character special abilities --->
-    <div class="row">
-        <h3 class="header" ng-show="abilitiesDisabled">Choose one ability</h3>
-        <div class="large-3 columns" ng-repeat="ability in selectedCharacter" ng-show="abilitiesDisabled">
-            <div class="card abilityCard" ng-class="{'activeCard' : $index == abilitiesCard}">
-                <div id="abilityImage" class="image">
-                    <img class="abilityImage" ng-src="{{ ability.image }}" />
-                    <h2 id="abilityTitle" class="title">{{ ability.name }}</h2>
-                </div>
-                <div class="content">
-                    <p><strong>Description: </strong>{{ ability.description }}</p>
-                    <h5 class="abilityCost"><strong>Cost: </strong>{{ ability.cost }}</h5>
-                </div>
-                <div class="action">
-                    <a class="button abilitySelectButton" ng-hide="abilityButtonDisabled" ng-click="calcCostController(ability.cost); activeAbilityCard($index)">Select this ability</a>
+    <div id="mainDetails">
+        <!--ng-repeat character class cards-->
+        <div class="row" ng-hide="hide">
+            <h3 class="header">Choose one class</h3>
+            <div class="large-3 columns" ng-repeat="class in classes">
+                <div class="card classCard" ng-class="{'activeCard' : $index == classCard}">
+                    <div class="image">
+                        <img ng-src="{{ class.image }}">
+                        <h2 class="title">{{ class.name }}</h2>
+                    </div>
+                    <div class="content">
+                        <p><strong>Strength: </strong>{{ class.skill }}</p>
+                        <p><strong>Weakness: </strong>{{ class.weakness }}</p><br>
+                        <h5 class="classCost"><strong>Cost: </strong>{{ class.cost }}</h5>
+                    </div>
+                    <div class="action">
+                        <a class="button classSelectButton" ng-hide="isDisabled" ng-click="calcCostController(class.cost); activeClassCard($index)">Select this class</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- ng-repeat character weapon -->
-    <div class="row">
-        <h3 class="header" ng-show="weaponsDisabled">Choose one weapon</h3>
-        <div class="large-3 columns" ng-repeat="weapon in allWeapons" ng-show="weaponsDisabled">
-            <div class="card" ng-class="{'activeCard' : $index == weaponCard}">
-                <div id="weaponImage" class="image">
-                    <img ng-src="{{ weapon.image }}" />
-                    <h2 class="title">{{ weapon.name }}</h2>
+        <!-- container for adding character name -->
+        <div class="row nameBlock">
+            <div class="large-5 columns large-centered" ng-show="isDisabled">
+                <form ng-submit="nameSubmit()">
+                    <h4>Your character name: <br><strong>{{ inputText }}</strong></h4>
+                    <input id="charName" type="text" ng-model="inputText" placeholder="Enter character name" required/>
+                    <input id="charNameSubmit" type="submit" value='Submit' ng-click="abilityDisabled()"/>
+                </form>
+            </div>
+        </div>
+
+        <!-- ng-repeat character special abilities --->
+        <div class="row">
+            <h3 class="header" ng-show="abilitiesDisabled">Choose one ability</h3>
+            <div class="large-3 columns" ng-repeat="ability in selectedCharacter" ng-show="abilitiesDisabled">
+                <div class="card abilityCard" ng-class="{'activeCard' : $index == abilitiesCard}">
+                    <div id="abilityImage" class="image">
+                        <img class="abilityImage" ng-src="{{ ability.image }}" />
+                        <h2 id="abilityTitle" class="title">{{ ability.name }}</h2>
+                    </div>
+                    <div class="content">
+                        <p><strong>Description: </strong>{{ ability.description }}</p>
+                        <h5 class="abilityCost"><strong>Cost: </strong>{{ ability.cost }}</h5>
+                    </div>
+                    <div class="action">
+                        <a class="button abilitySelectButton" ng-hide="abilityButtonDisabled" ng-click="calcCostController(ability.cost); activeAbilityCard($index)">Select this ability</a>
+                    </div>
                 </div>
-                <div class="content">
-                    <p><strong>Description: </strong>{{ weapon.description }}</p>
-                    <h5><strong>Cost: </strong>{{ weapon.cost }}</h5>
-                </div>
-                <div class="action">
-                    <a class="button weaponSelectButton" ng-hide="weaponButtonDisabled" ng-click="calcCostController(weapon.cost); activeWeaponCard($index)">Select this weapon</a>
+            </div>
+        </div>
+
+        <!-- ng-repeat character weapon -->
+        <div class="row">
+            <h3 class="header" ng-show="weaponsDisabled">Choose one weapon</h3>
+            <div class="large-3 columns" ng-repeat="weapon in allWeapons" ng-show="weaponsDisabled">
+                <div class="card" ng-class="{'activeCard' : $index == weaponCard}">
+                    <div id="weaponImage" class="image">
+                        <img ng-src="{{ weapon.image }}" />
+                        <h2 class="title">{{ weapon.name }}</h2>
+                    </div>
+                    <div class="content">
+                        <p><strong>Description: </strong>{{ weapon.description }}</p>
+                        <h5><strong>Cost: </strong>{{ weapon.cost }}</h5>
+                    </div>
+                    <div class="action">
+                        <a class="button weaponSelectButton" ng-hide="weaponButtonDisabled" ng-click="calcCostController(weapon.cost); activeWeaponCard($index)">Select this weapon</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -114,12 +108,12 @@
         <div class="large-12 large-centered columns">
             <div class="buttonContainer" ng-show="nextButtonDisabled">
                 <h3 class="header">View your character details</h3>
-                <a class="button weaponSelectButton">Next</a>
+                <a class="button weaponSelectButton" href="#/details" ng-click="showDetails()">Next</a>
             </div>
         </div>
     </div>
 
-
+    <div ng-view></div>
 </div>
 
 </body>

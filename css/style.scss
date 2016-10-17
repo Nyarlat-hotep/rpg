@@ -3,20 +3,35 @@ body {
   background: rgb(49, 11, 7);
 
   #container {
-    background: black;
-    width: 79%;
     margin: 0 auto;
   }
 }
 
-h1, h2, h4 {
+h1, h2, h4, h6 {
   text-align: center;
   color: rgb(224, 176, 33);
 }
 
 .headerContainer {
-  border: 1px solid rgb(94, 12, 0);
-  margin-bottom: 2rem;
+  //border: 1px solid rgb(94, 12, 0);
+  //margin-bottom: 2rem;
+  max-width: none;
+  position: absolute;
+  background-color: #222;
+  z-index: 100;
+  padding: 3rem 2rem 4.9rem 2rem;
+}
+
+#mainDetails {
+  width: 79%;
+  margin: 0 auto;
+  background: black;
+}
+
+.headContainerScroll {
+  position: fixed;
+  padding: 0;
+
 }
 
 .card {
@@ -66,6 +81,7 @@ h1, h2, h4 {
   transition: color 0.3s ease;
   text-transform: uppercase;
   text-decoration: none;
+  width: 14rem;
 }
 
 .card .image {
@@ -128,12 +144,6 @@ h1, h2, h4 {
   }
 }
 
-.progressContainer {
-  background-color: #222;
-  z-index: 100;
-  padding: 3rem 2rem 4.9rem 2rem;
-}
-
 .progress {
   padding: 0;
   background-color: gray;
@@ -187,9 +197,10 @@ h1, h2, h4 {
   bottom: 0;
   background-color: #222;
   color: rgb(161, 142, 115);
+}
 
-  #charDetails {
-    text-align: left;
-  }
+#charDetails {
+  width: 79%;
+  margin: 0 auto;
 }
 

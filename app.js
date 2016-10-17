@@ -1,5 +1,5 @@
 // Module
-var app = angular.module('storeApp', []);
+var app = angular.module('storeApp', ["ngRoute"]);
 
 
 app.controller('storeController', ["$scope", "classesService", "abilitiesService", "weaponService", function($scope, classesService, abilitiesService, weaponService) {
@@ -15,8 +15,9 @@ app.controller('storeController', ["$scope", "classesService", "abilitiesService
     $scope.weaponButtonDisabled = false;
     $scope.progressFull = false;    // for full progress bar
     $scope.nextButtonDisabled = false;
+    $scope.hideEverything = false;
 
-    // function to re-retotal points. Sets disabled for buttons, progress class for progress meter
+    // function to re-total points. Sets disabled for buttons, progress class for progress meter
     $scope.calcCostController = function(classCost) {
         $scope.totalSkillPoints = classesService.calcCostService($scope.totalSkillPoints, classCost);
         $scope.isDisabled = true;
@@ -70,6 +71,36 @@ app.controller('storeController', ["$scope", "classesService", "abilitiesService
             $scope.inputCharName.push(this.inputText);
             $scope.inputText = '';   // set text back to nothing
     };
+
+
+    // function for showing character details
+    $scope.showDetails = function() {
+        $scope.hideEverything = true;
+    };
+
+}]);
+
+
+///////////////////////////////////////////////////////////  ROUTES  /////////////////////////////////////////////////////////////////////////////////////
+
+app.config(function($routeProvider) {
+
+    $routeProvider
+
+        .when('/details', {
+            templateUrl: 'charDetails.html',
+            controller: 'characterDetailsController'
+        })
+
+});
+
+
+
+///////////////////////////////////////////////////////////  CHAR DETAILS CONTROLLER  /////////////////////////////////////////////////////////////////////////////////////
+
+app.controller('characterDetailsController', ["$scope", "classesService", "abilitiesService", "weaponService", function($scope, classesService, abilitiesService, weaponService) {
+
+
 
 }]);
 
@@ -131,9 +162,9 @@ app.service('abilitiesService', function() {
     // New Object for Abilites
     // function to create abilities per character
     function createAbility (name, desc, cost, image) {
-        var Ability = {'name': name, 'description': desc, 'cost': cost, 'image': image};
+        var Ability = {'name': name, 'description': desc, 'cost': cost, 'image': image};    // create object
 
-        return Ability;
+        return Ability; // return object
     }
 
     // New Object for Characters
@@ -210,4 +241,22 @@ app.filter('stringFilter', function() {
             return input.toString();
         }
     }
+});
+
+
+
+
+///////////////////////////////////////////////////////////////  SCRIPTS  /////////////////////////////////////////////////////////////////////////
+
+$(document).ready(function () {
+
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 1){
+            $('.headerContainer').addClass("headContainerScroll");
+        }
+        else{
+            $('.headerContainer').removeClass("headContainerScroll");
+        }
+    });
+
 });

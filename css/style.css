@@ -2,17 +2,27 @@ body {
   min-height: 100%;
   background: #310b07; }
   body #container {
-    background: black;
-    width: 79%;
     margin: 0 auto; }
 
-h1, h2, h4 {
+h1, h2, h4, h6 {
   text-align: center;
   color: #e0b021; }
 
 .headerContainer {
-  border: 1px solid #5e0c00;
-  margin-bottom: 2rem; }
+  max-width: none;
+  position: absolute;
+  background-color: #222;
+  z-index: 100;
+  padding: 3rem 2rem 4.9rem 2rem; }
+
+#mainDetails {
+  width: 79%;
+  margin: 0 auto;
+  background: black; }
+
+.headContainerScroll {
+  position: fixed;
+  padding: 0; }
 
 .card {
   font-family: 'Roboto', sans-serif;
@@ -52,7 +62,8 @@ h1, h2, h4 {
 .card a {
   transition: color 0.3s ease;
   text-transform: uppercase;
-  text-decoration: none; }
+  text-decoration: none;
+  width: 14rem; }
 
 .card .image {
   position: relative;
@@ -100,11 +111,6 @@ h1, h2, h4 {
     background-color: #ffd700;
     color: black; }
 
-.progressContainer {
-  background-color: #222;
-  z-index: 100;
-  padding: 3rem 2rem 4.9rem 2rem; }
-
 .progress {
   padding: 0;
   background-color: gray; }
@@ -148,5 +154,7 @@ h1, h2, h4 {
   bottom: 0;
   background-color: #222;
   color: #a18e73; }
-  .footer #charDetails {
-    text-align: left; }
+
+#charDetails {
+  width: 79%;
+  margin: 0 auto; }

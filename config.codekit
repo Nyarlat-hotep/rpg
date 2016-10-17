@@ -24,6 +24,15 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 0
 		},
+	"\/charDetails.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/charDetails.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/css\/style.css": {
 		"fileType": 16,
 		"ignore": 1,
@@ -149,12 +158,12 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/jquery-3.1.1.min.js": {
+	"\/jquery-3.1.1.js": {
 		"fileType": 64,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/jquery-3.1.1.min.js",
-		"outputAbbreviatedPath": "\/min\/jquery-3.1.1.min-min.js",
+		"inputAbbreviatedPath": "\/jquery-3.1.1.js",
+		"outputAbbreviatedPath": "\/min\/jquery-3.1.1-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
@@ -166,17 +175,6 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/min\/app-min.js",
 		"outputAbbreviatedPath": "\/min\/min\/app-min-min.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
-		},
-	"\/min\/vertilize-min.js": {
-		"fileType": 64,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/min\/vertilize-min.js",
-		"outputAbbreviatedPath": "\/min\/min\/vertilize-min-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
