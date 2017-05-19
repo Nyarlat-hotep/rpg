@@ -218,7 +218,7 @@ app.service('weaponService', function () {
     }
 
     var sword = new Weapon('Sword', 'Weapon used for hack and slash fighting.', 2, 'http://www.freeiconspng.com/uploads/sword-png-31.png');
-    var axe = new Weapon('Axe', 'Heavy weapon used for causing major limb damage.', 3, 'http://plainicon.com/dboard/userprod/2921_4eb4c/prod_thumb/plainicon.com-58663-512px-87e.png');
+    var axe = new Weapon('Axe', 'Heavy weapon used for causing major limb damage.', 3, 'https://img.clipartfest.com/c8bf20c3cdf090957e78136b5156e515_medieval-battle-axe-clipart-clipartfox-medieval-battle-axe-clipart_297-297.png');
     var spear = new Weapon('Spear', 'Light weapon used for mid-range fighting.', 2, 'https://d30y9cdsu7xlg0.cloudfront.net/png/33215-200.png');
     var wand = new Weapon('Wand', 'Weapon imbued with magical powers. Used for long distance fighting', 3, 'https://d30y9cdsu7xlg0.cloudfront.net/png/1294-200.png');
 

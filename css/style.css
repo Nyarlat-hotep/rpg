@@ -9,8 +9,9 @@ h1, h2, h4, h6 {
   color: #e0b021; }
 
 .headerContainer {
-  max-width: none;
   position: absolute;
+  top: 0;
+  width: 100%;
   background-color: #222;
   z-index: 100;
   padding: 3rem 2rem 4.9rem 2rem; }
@@ -18,11 +19,14 @@ h1, h2, h4, h6 {
 #mainDetails {
   width: 79%;
   margin: 0 auto;
-  background: black; }
+  background: black;
+  margin-top: 20rem; }
 
 .headContainerScroll {
   position: fixed;
   padding: 0; }
+  .headContainerScroll h2, .headContainerScroll h4 {
+    font-size: 1.25rem; }
 
 .card {
   font-family: 'Roboto', sans-serif;
